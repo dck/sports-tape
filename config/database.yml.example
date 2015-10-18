@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  username: sports-tape
+  password: sports-tape
+  host: localhost
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: sports-tape_development
+
+test:
+  <<: *default
+  database: sports-tape_test
+
+production:
+  <<: *default
+  database: sports-tape_production
+  username: sports-tape
+  password: <%= ENV['SPORTS-TAPE_DATABASE_PASSWORD'] %>
